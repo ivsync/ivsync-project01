@@ -21,6 +21,11 @@ app.use((req, res, next) => {
   next();
 });
 
+// Root API
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to ivsync - Your Health Partner" });
+});
+
 // Create (POST)
 app.post("/api/devices", async (req, res) => {
   try {
