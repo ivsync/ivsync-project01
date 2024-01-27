@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 });
 
 // Root API
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
   res.json({ message: "Welcome to ivsync - Your Health Partner" });
 });
 
