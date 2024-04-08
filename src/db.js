@@ -1,22 +1,11 @@
 const mongoose = require('mongoose');
+const { logger } = require('../config');
 
 let pool;
-const moongoseConfig = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
-
-let logger = {
-  info: console.log,
-  error: console.error,
-};
 
 const connect = async () => {
   try {
-    const connection = await mongoose.connect(
-      `${process.env.MONGODB_URI}`,
-      moongoseConfig,
-    );
+    const connection = await mongoose.connect(process.env.MONGODB_URI);
     pool = connection;
     logger.info('DATABASE connected successfully!');
   } catch (error) {
